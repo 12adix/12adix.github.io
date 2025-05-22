@@ -1,114 +1,194 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Cool Game — Test Site</title>
+  <title>Fallenborn — Low Poly Fantasy MMORPG</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Share+Tech+Mono&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Open+Sans+Condensed:wght@700&family=Roboto+Slab&display=swap');
 
-    /* Reset & base */
+    /* Base Reset */
     * {
-      box-sizing: border-box;
-      margin: 0; padding: 0;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
     body {
-      background: #0a0a0a;
-      color: #00fff7;
-      font-family: 'Share Tech Mono', monospace;
+      background: linear-gradient(135deg, #2b3e25 0%, #5a7a4d 60%, #d4c497 100%);
+      font-family: 'Open Sans Condensed', sans-serif;
+      color: #f2f1e7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Navigation */
+    nav {
+      background: rgba(58, 45, 21, 0.85);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+      padding: 1em 3em;
+      display: flex;
+      justify-content: center;
+      gap: 2.5em;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      user-select: none;
+    }
+    nav a {
+      color: #f2f1e7;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    nav a:hover,
+    nav a:focus {
+      color: #f5d083;
+    }
+    nav a::after {
+      content: "";
+      display: block;
+      height: 2px;
+      background: #f5d083;
+      width: 0;
+      transition: width 0.3s ease;
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+    }
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 100%;
+    }
+
+    /* Header hero */
+    header {
+      flex-grow: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
       text-align: center;
-      padding: 20px;
-      user-select: none;
-    }
-
-    h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3.5rem;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.5em;
-      text-shadow:
-        0 0 8px #00fff7,
-        0 0 20px #00fff7,
-        0 0 30px #00c6c0;
-    }
-
-    p {
-      font-size: 1.25rem;
-      margin-bottom: 2em;
-      color: #66f9f7aa;
-      max-width: 600px;
-      line-height: 1.5;
-    }
-
-    /* Glowing button */
-    .btn {
-      display: inline-block;
-      padding: 1em 2.5em;
-      font-family: 'Share Tech Mono', monospace;
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: #00fff7;
-      background: transparent;
-      border: 2px solid #00fff7;
-      border-radius: 6px;
-      cursor: pointer;
+      padding: 3em 1em;
       position: relative;
-      overflow: hidden;
-      transition: color 0.3s ease;
+    }
+
+    header h1 {
+      font-family: 'Uncial Antiqua', serif;
+      font-size: 4.5rem;
+      color: #f5d083;
+      text-shadow:
+        2px 2px 0 #443d21,
+        4px 4px 8px rgba(0,0,0,0.7);
+      margin-bottom: 0.5em;
       user-select: none;
-      box-shadow:
-        0 0 10px #00fff7,
-        0 0 20px #00fff7;
     }
-    .btn:hover {
-      color: #0a0a0a;
-      background: #00fff7;
-      box-shadow:
-        0 0 20px #00fff7,
-        0 0 40px #00fff7,
-        0 0 60px #00fff7;
+    header p {
+      max-width: 500px;
+      font-family: 'Roboto Slab', serif;
+      font-size: 1.4rem;
+      color: #f2f1e7cc;
+      margin-bottom: 2em;
+      line-height: 1.5;
+      user-select: none;
     }
+
+    /* Glowing fantasy button */
+    .btn {
+      background: linear-gradient(135deg, #c0a454 0%, #a37f24 100%);
+      border: 2px solid #a37f24;
+      border-radius: 12px;
+      box-shadow:
+        0 0 12px #c0a454,
+        0 0 24px #a37f24;
+      color: #2b2209;
+      cursor: pointer;
+      font-family: 'Open Sans Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      padding: 1em 3em;
+      user-select: none;
+      transition: all 0.25s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      text-shadow: 0 0 5px #f5d083bb;
+      outline-offset: 3px;
+      outline-color: #f5d083;
+      outline-style: solid;
+      outline-width: 0;
+    }
+    .btn:hover,
     .btn:focus {
-      outline: none;
+      background: #f5d083;
+      color: #5a3e00;
       box-shadow:
-        0 0 30px #00fff7,
-        0 0 50px #00fff7,
-        0 0 80px #00fff7;
+        0 0 20px #f5d083,
+        0 0 40px #d4c497;
+      outline-width: 3px;
     }
 
-    /* Subtle flicker animation on header */
-    @keyframes flicker {
-      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-        opacity: 1;
-      }
-      20%, 22%, 24%, 55% {
-        opacity: 0.7;
-      }
-    }
-    h1 {
-      animation: flicker 3s infinite;
-    }
-
+    /* Footer */
     footer {
-      position: fixed;
-      bottom: 10px;
-      font-size: 0.8rem;
-      color: #00fff766;
-      font-family: 'Share Tech Mono', monospace;
+      background: rgba(58, 45, 21, 0.85);
+      color: #f5d083cc;
+      font-family: 'Roboto Slab', serif;
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 1em 0;
       user-select: none;
     }
+
+    /* Nature shape accents (low-poly style polygons) */
+    header::before {
+      content: "";
+      position: absolute;
+      top: -30px;
+      left: -40px;
+      width: 150px;
+      height: 150px;
+      background: #536b2c;
+      clip-path: polygon(50% 0%, 90% 40%, 70% 100%, 30% 100%, 10% 40%);
+      opacity: 0.3;
+      transform: rotate(-15deg);
+      z-index: 0;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      bottom: -40px;
+      right: -30px;
+      width: 130px;
+      height: 130px;
+      background: #7a9c4d;
+      clip-path: polygon(60% 0%, 100% 30%, 80% 90%, 40% 100%, 0 40%);
+      opacity: 0.25;
+      transform: rotate(20deg);
+      z-index: 0;
+    }
+    header > * {
+      position: relative;
+      z-index: 1;
+    }
+
   </style>
 </head>
 <body>
-  <h1>Fallenborn — Test Site</h1>
-  <p>Welcome to the testing ground for Fallenborn — your upcoming low-poly MMORPG adventure. This is a placeholder page showcasing some style and vibes to come.</p>
-  <button class="btn" onclick="alert('Get ready for epicness!')">Click me, if you dare</button>
 
-  <footer>© 2025 Fallenborn Project</footer>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">World</a>
+    <a href="#">Races</a>
+    <a href="#">Goblins</a>
+    <a href="#">Join</a>
+  </nav>
+
+  <header>
+    <h1>Fallenborn</h1>
+    <p>Embark on a vast low-poly adventure where nature, goblins, and diverse races collide in an epic MMORPG world.</p>
+    <button class="btn" onclick="alert('Prepare for adventure in Fallenborn!')">Enter the Realm</button>
+  </header>
+
+  <footer>
+    &copy; 2025 Fallenborn Project. All rights reserved.
+  </footer>
+
 </body>
 </html>

@@ -1,194 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Fallenborn — Low Poly Fantasy MMORPG</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Open+Sans+Condensed:wght@700&family=Roboto+Slab&display=swap');
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fallenborn — In a world torn by war, legends rise from the fallen.</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Uncial+Antiqua&display=swap" rel="stylesheet" />
+<style>
+  /* Reset & base */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; 
+    background: #0a3d1b; /* deep green */
+    color: #f3d95a; /* warm yellow */
+    font-family: 'Cinzel', serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  a {
+    color: #f3d95a;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
 
-    /* Base Reset */
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
-    body {
-      background: linear-gradient(135deg, #2b3e25 0%, #5a7a4d 60%, #d4c497 100%);
-      font-family: 'Open Sans Condensed', sans-serif;
-      color: #f2f1e7;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    /* Navigation */
-    nav {
-      background: rgba(58, 45, 21, 0.85);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.6);
-      padding: 1em 3em;
-      display: flex;
-      justify-content: center;
-      gap: 2.5em;
-      font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 0.08em;
-      user-select: none;
-    }
-    nav a {
-      color: #f2f1e7;
-      text-decoration: none;
-      transition: color 0.3s ease;
-      position: relative;
-    }
-    nav a:hover,
-    nav a:focus {
-      color: #f5d083;
-    }
-    nav a::after {
-      content: "";
-      display: block;
-      height: 2px;
-      background: #f5d083;
-      width: 0;
-      transition: width 0.3s ease;
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-    }
-    nav a:hover::after,
-    nav a:focus::after {
-      width: 100%;
-    }
+  /* Container */
+  .container {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+  }
 
-    /* Header hero */
-    header {
-      flex-grow: 1;
-      display: flex;
+  /* Torches */
+  .torch {
+    width: 60px;
+    height: 160px;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .torch.left {
+    left: 10px;
+  }
+  .torch.right {
+    right: 10px;
+  }
+  /* Torch flame */
+  .flame {
+    width: 24px;
+    height: 48px;
+    background: radial-gradient(circle at center, #ffdd55 40%, #ff9900 70%, #cc6600 90%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    filter: drop-shadow(0 0 5px #ffa500);
+    animation: flicker 1.5s infinite alternate ease-in-out;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .flame::before {
+    content: "";
+    position: absolute;
+    top: 12px; left: 6px;
+    width: 12px; height: 24px;
+    background: radial-gradient(circle at center, #fff066 30%, transparent 80%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: flicker-inner 1.5s infinite alternate ease-in-out;
+  }
+  @keyframes flicker {
+    0% { transform: scale(1) translateY(0); filter: drop-shadow(0 0 5px #ffa500); }
+    100% { transform: scale(1.05) translateY(-3px); filter: drop-shadow(0 0 10px #ffb733); }
+  }
+  @keyframes flicker-inner {
+    0% { opacity: 0.9; }
+    100% { opacity: 0.5; }
+  }
+
+  /* Skeleton in chair */
+  .skeleton-container {
+    width: 200px;
+    height: 320px;
+    background: linear-gradient(145deg, #2e2a23, #1a1713);
+    border-radius: 10px;
+    box-shadow: inset 0 0 15px #222;
+    margin-right: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    color: #bbb;
+    font-family: 'Uncial Antiqua', cursive;
+    user-select: none;
+  }
+  .skeleton-head {
+    width: 80px;
+    height: 80px;
+    background: #bbb;
+    border-radius: 50%;
+    box-shadow: inset 10px 10px 15px #999, inset -5px -5px 10px #ddd;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .skeleton-eye {
+    position: absolute;
+    top: 28px;
+    width: 18px;
+    height: 18px;
+    background: #444;
+    border-radius: 50%;
+  }
+  .eye-left {
+    left: 18px;
+  }
+  .eye-right {
+    right: 18px;
+  }
+  .skeleton-body {
+    width: 120px;
+    height: 180px;
+    background: linear-gradient(135deg, #999, #666);
+    border-radius: 25px 25px 15px 15px;
+    box-shadow: inset 5px 10px 15px #444;
+    position: relative;
+  }
+  .skeleton-chair {
+    position: absolute;
+    bottom: 0;
+    width: 140px;
+    height: 40px;
+    background: #4a3f27;
+    border-radius: 5px;
+    box-shadow: inset 0 0 10px #2f2512;
+  }
+
+  /* Main content */
+  .main-content {
+    max-width: 500px;
+    text-align: left;
+  }
+  .main-content h1 {
+    font-size: 3rem;
+    margin: 0 0 10px 0;
+    line-height: 1.1;
+    letter-spacing: 3px;
+  }
+  .tagline {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+    font-style: italic;
+    color: #e5d772;
+  }
+
+  /* Buttons */
+  .btn-group {
+    display: flex;
+    gap: 20px;
+  }
+  button {
+    background-color: #f3d95a;
+    border: none;
+    color: #0a3d1b;
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 12px 28px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(243, 217, 90, 0.6);
+    user-select: none;
+  }
+  button:hover {
+    background-color: #e6cc44;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .container {
       flex-direction: column;
-      justify-content: center;
+      padding: 40px 20px;
+    }
+    .skeleton-container {
+      margin-right: 0;
+      margin-bottom: 40px;
+      width: 160px;
+      height: 260px;
+    }
+    .main-content {
+      max-width: 100%;
+      text-align: center;
+    }
+    .main-content h1 {
+      font-size: 2.5rem;
+    }
+    .btn-group {
+      flex-direction: column;
+      gap: 15px;
       align-items: center;
-      text-align: center;
-      padding: 3em 1em;
-      position: relative;
     }
-
-    header h1 {
-      font-family: 'Uncial Antiqua', serif;
-      font-size: 4.5rem;
-      color: #f5d083;
-      text-shadow:
-        2px 2px 0 #443d21,
-        4px 4px 8px rgba(0,0,0,0.7);
-      margin-bottom: 0.5em;
-      user-select: none;
+    .torch.left, .torch.right {
+      display: none; /* hide torches on small screens for clarity */
     }
-    header p {
-      max-width: 500px;
-      font-family: 'Roboto Slab', serif;
-      font-size: 1.4rem;
-      color: #f2f1e7cc;
-      margin-bottom: 2em;
-      line-height: 1.5;
-      user-select: none;
+  }
+  @media (max-width: 400px) {
+    .main-content h1 {
+      font-size: 2rem;
     }
-
-    /* Glowing fantasy button */
-    .btn {
-      background: linear-gradient(135deg, #c0a454 0%, #a37f24 100%);
-      border: 2px solid #a37f24;
-      border-radius: 12px;
-      box-shadow:
-        0 0 12px #c0a454,
-        0 0 24px #a37f24;
-      color: #2b2209;
-      cursor: pointer;
-      font-family: 'Open Sans Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 1.25rem;
-      padding: 1em 3em;
-      user-select: none;
-      transition: all 0.25s ease;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      text-shadow: 0 0 5px #f5d083bb;
-      outline-offset: 3px;
-      outline-color: #f5d083;
-      outline-style: solid;
-      outline-width: 0;
+    button {
+      font-size: 1rem;
+      padding: 10px 24px;
     }
-    .btn:hover,
-    .btn:focus {
-      background: #f5d083;
-      color: #5a3e00;
-      box-shadow:
-        0 0 20px #f5d083,
-        0 0 40px #d4c497;
-      outline-width: 3px;
-    }
-
-    /* Footer */
-    footer {
-      background: rgba(58, 45, 21, 0.85);
-      color: #f5d083cc;
-      font-family: 'Roboto Slab', serif;
-      font-size: 0.9rem;
-      text-align: center;
-      padding: 1em 0;
-      user-select: none;
-    }
-
-    /* Nature shape accents (low-poly style polygons) */
-    header::before {
-      content: "";
-      position: absolute;
-      top: -30px;
-      left: -40px;
-      width: 150px;
-      height: 150px;
-      background: #536b2c;
-      clip-path: polygon(50% 0%, 90% 40%, 70% 100%, 30% 100%, 10% 40%);
-      opacity: 0.3;
-      transform: rotate(-15deg);
-      z-index: 0;
-    }
-    header::after {
-      content: "";
-      position: absolute;
-      bottom: -40px;
-      right: -30px;
-      width: 130px;
-      height: 130px;
-      background: #7a9c4d;
-      clip-path: polygon(60% 0%, 100% 30%, 80% 90%, 40% 100%, 0 40%);
-      opacity: 0.25;
-      transform: rotate(20deg);
-      z-index: 0;
-    }
-    header > * {
-      position: relative;
-      z-index: 1;
-    }
-
-  </style>
+  }
+</style>
 </head>
 <body>
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">World</a>
-    <a href="#">Races</a>
-    <a href="#">Goblins</a>
-    <a href="#">Join</a>
-  </nav>
+<div class="torch left">
+  <div class="flame"></div>
+  <div style="width: 6px; height: 80px; background: #7a532d; border-radius: 3px;"></div>
+</div>
 
-  <header>
+<div class="torch right">
+  <div class="flame"></div>
+  <div style="width: 6px; height: 80px; background: #7a532d; border-radius: 3px;"></div>
+</div>
+
+<div class="container">
+  <div class="skeleton-container" aria-label="Skeleton sitting in chair, dark dungeon theme">
+    <div class="skeleton-head">
+      <div class="skeleton-eye eye-left"></div>
+      <div class="skeleton-eye eye-right"></div>
+    </div>
+    <div class="skeleton-body">
+      <div class="skeleton-chair"></div>
+    </div>
+  </div>
+  <div class="main-content">
     <h1>Fallenborn</h1>
-    <p>Embark on a vast low-poly adventure where nature, goblins, and diverse races collide in an epic MMORPG world.</p>
-    <button class="btn" onclick="alert('Prepare for adventure in Fallenborn!')">Enter the Realm</button>
-  </header>
-
-  <footer>
-    &copy; 2025 Fallenborn Project. All rights reserved.
-  </footer>
+    <p class="tagline">In a world torn by war, legends rise from the fallen.</p>
+    <div class="btn-group">
+      <button onclick="alert('Login page coming soon!')">Login</button>
+      <button onclick="alert('Register page coming soon!')">Register</button>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

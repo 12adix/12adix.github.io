@@ -12,8 +12,11 @@
       margin: 0; padding: 0; box-sizing: border-box;
     }
     body {
-      background: url('your-image-url.jpg') center/cover no-repeat fixed, 
-                  linear-gradient(135deg, #2b3e25 0%, #5a7a4d 60%, #d4c497 100%);
+      /* Background image with overlay */
+      background: 
+        linear-gradient(rgba(43, 62, 37, 0.7), rgba(212, 196, 151, 0.8)),
+        url('images/background.jpeg') no-repeat center center fixed;
+      background-size: cover;
       font-family: 'Open Sans Condensed', sans-serif;
       color: #f2f1e7;
       min-height: 100vh;
@@ -177,13 +180,12 @@
     <a href="#">Home</a>
     <a href="#">World</a>
     <a href="#">Races</a>
-    <a href="#">Goblins</a>
     <a href="#">Join</a>
   </nav>
 
   <header>
     <h1>Fallenborn</h1>
-    <p>Embark on a vast low-poly adventure where nature, goblins, and diverse races collide in an epic MMORPG world.</p>
+    <p>Embark on a vast low-poly adventure where nature and diverse races collide in an epic MMORPG world.</p>
     <button class="btn" onclick="alert('Prepare for adventure in Fallenborn!')">Enter the Realm</button>
   </header>
 

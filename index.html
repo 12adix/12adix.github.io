@@ -4,6 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fallenborn — Enter the Realm</title>
+  <meta name="description" content="Fallenborn is a cooperative low-poly MMORPG inspired by RuneScape and Lord of the Rings. Join a world shaped by your choices.">
+  <meta name="author" content="Fallenborn Project">
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+  <!-- Social media meta (Open Graph & Twitter) -->
+  <meta property="og:title" content="Fallenborn — Enter the Realm">
+  <meta property="og:description" content="A cooperative MMORPG where legends are born through choice.">
+  <meta property="og:image" content="images/preview.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com">
+  <meta name="twitter:card" content="summary_large_image">
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Open+Sans+Condensed:wght@700&family=Roboto+Slab&display=swap');
 
@@ -16,7 +30,7 @@
     body {
       background:
         linear-gradient(rgba(43, 62, 37, 0.7), rgba(212, 196, 151, 0.8)),
-        url('images/background.jpeg') no-repeat center center fixed;
+        url('images/background-compressed.jpg') no-repeat center center fixed;
       background-size: cover;
       font-family: 'Open Sans Condensed', sans-serif;
       color: #f2f1e7;
@@ -65,7 +79,6 @@
       left: 0;
     }
 
-    /* Hamburger button (hidden on desktop) */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -84,7 +97,6 @@
       transition: all 0.3s ease;
     }
 
-    /* Mobile nav hidden by default */
     nav.mobile-nav {
       display: none;
       flex-direction: column;
@@ -92,12 +104,11 @@
       padding: 1em 1.5em;
     }
 
-    /* Show nav links in mobile only when active */
     nav.mobile-nav.active {
       display: flex;
       background: rgba(58, 45, 21, 0.95);
       position: absolute;
-      top: 60px; /* nav height + some spacing */
+      top: 60px;
       left: 0;
       right: 0;
       z-index: 15;
@@ -187,7 +198,6 @@
       margin-top: auto;
     }
 
-    /* --- Mobile Optimization --- */
     @media (max-width: 600px) {
       header h1 {
         font-size: 2.5rem;
@@ -207,7 +217,6 @@
         padding: 0.75em 2em;
       }
 
-      /* Hide desktop nav links, show hamburger */
       nav {
         display: none;
       }
@@ -237,7 +246,6 @@
         display: flex;
       }
 
-      /* Adjust section padding for smaller screen */
       section {
         padding: 3em 1em;
       }
@@ -251,7 +259,7 @@
 <body>
 
   <!-- Desktop nav -->
-  <nav>
+  <nav aria-label="Primary">
     <a href="index.html">Home</a>
     <a href="world.html">World</a>
     <a href="races.html">Races</a>
@@ -289,7 +297,6 @@
   </footer>
 
   <script>
-    // Toggle mobile nav on hamburger click
     const hamburger = document.querySelector('.hamburger');
     const mobileNav = document.querySelector('nav.mobile-nav');
 
@@ -301,7 +308,6 @@
 
     hamburger.addEventListener('click', toggleMenu);
 
-    // Also allow toggling via keyboard (Enter or Space)
     hamburger.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fallenborn — The World Awaits</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Open+Sans+Condensed:wght@700&family=Roboto+Slab&display=swap');
+
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      background: 
+        linear-gradient(rgba(34, 45, 28, 0.75), rgba(181, 163, 110, 0.85)),
+        url('images/world-background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Open Sans Condensed', sans-serif;
+      color: #f2f1e7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      background: rgba(58, 45, 21, 0.85);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+      padding: 1em 3em;
+      display: flex;
+      justify-content: center;
+      gap: 2.5em;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      user-select: none;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav a {
+      color: #f2f1e7;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 100%;
+    }
+    nav a::after {
+      content: "";
+      display: block;
+      height: 2px;
+      background: #f5d083;
+      width: 0;
+      transition: width 0.3s ease;
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+    }
+
+    main {
+      flex-grow: 1;
+      background: rgba(24, 21, 15, 0.85);
+      max-width: 900px;
+      margin: 3em auto 4em;
+      padding: 3em 2em;
+      border-radius: 12px;
+      box-shadow: 0 0 30px #927e3f88;
+      font-family: 'Roboto Slab', serif;
+      line-height: 1.6;
+      color: #e0d8c0;
+    }
+
+    main h1 {
+      font-family: 'Uncial Antiqua', serif;
+      font-size: 3.6rem;
+      margin-bottom: 0.5em;
+      color: #f5d083;
+      text-align: center;
+      text-shadow: 2px 2px 6px #443d21aa;
+    }
+
+    main p {
+      font-size: 1.2rem;
+      margin-bottom: 1.8em;
+      text-align: center;
+    }
+
+    section {
+      margin-top: 2em;
+    }
+    section h2 {
+      font-family: 'Uncial Antiqua', serif;
+      font-size: 2.4rem;
+      color: #f5d083;
+      margin-bottom: 0.5em;
+      border-bottom: 2px solid #f5d083;
+      padding-bottom: 0.3em;
+    }
+
+    footer {
+      background: rgba(58, 45, 21, 0.85);
+      color: #f5d083cc;
+      font-family: 'Roboto Slab', serif;
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 1em 0;
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="world.html" aria-current="page">World</a>
+    <a href="races.html">Races</a>
+    <a href="join.html">Join</a>
+  </nav>
+
+  <main>
+    <h1>The World of Fallenborn</h1>
+    <p>Step beyond the veil of known lands and into a realm where nature breathes magic, and history is carved in stone and spirit alike.</p>
+
+    <section>
+      <h2>The Ancient Forests</h2>
+      <p>Vast, primeval woodlands stretch beyond the horizon, their canopies alive with whispered legends and the silent watch of ancient trees. These forests hide secrets both wondrous and perilous—forgotten relics, ancient beasts, and the lingering echoes of a world long fallen.</p>
+    </section>
+
+    <section>
+      <h2>Ruins of the Fallen World</h2>
+      <p>Scattered across the land lie the shattered remains of civilizations past, ruins steeped in mystery and power. Here, echoes of a lost age beckon those curious enough to uncover their stories—and daring enough to face the dangers they conceal.</p>
+    </section>
+
+    <section>
+      <h2>Wildlands and Beyond</h2>
+      <p>Beyond the forests and ruins lie wildlands untamed by man or magic. Jagged mountains, misty swamps, and endless plains stretch to the edges of the map. In these places, the brave find opportunity, danger, and the chance to carve their own destiny.</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Fallenborn Project. All rights reserved.
+  </footer>
+
+</body>
+</html>

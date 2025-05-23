@@ -7,21 +7,22 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Open+Sans+Condensed:wght@700&family=Roboto+Slab&display=swap');
 
-    /* Base Reset */
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
+
     body {
-      background: 
-        linear-gradient(rgba(43, 62, 37, 0.85), rgba(212, 196, 151, 0.85)),
-        url('images/background.jpeg') no-repeat center center fixed;
+      background:
+        linear-gradient(rgba(43, 62, 37, 0.7), rgba(212, 196, 151, 0.8)),
+        url('images/background-compressed.jpeg') no-repeat center center fixed;
       background-size: cover;
       font-family: 'Open Sans Condensed', sans-serif;
       color: #f2f1e7;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      line-height: 1.6;
     }
 
     nav {
@@ -39,16 +40,19 @@
       top: 0;
       z-index: 10;
     }
+
     nav a {
       color: #f2f1e7;
       text-decoration: none;
       transition: color 0.3s ease;
       position: relative;
     }
-    nav a:hover,
-    nav a:focus {
-      color: #f5d083;
+
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 100%;
     }
+
     nav a::after {
       content: "";
       display: block;
@@ -60,45 +64,46 @@
       bottom: -4px;
       left: 0;
     }
-    nav a:hover::after,
-    nav a:focus::after {
-      width: 100%;
-    }
 
     main {
+      background: rgba(24, 21, 15, 0.9);
+      flex-grow: 1;
+      padding: 4em 6em;
       max-width: 900px;
-      margin: 3rem auto 4rem;
-      padding: 0 1.5rem;
-      background: rgba(58, 45, 21, 0.75);
+      margin: 2em auto;
       border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.7);
+      box-shadow: 0 0 24px rgba(0,0,0,0.7);
     }
 
-    h1, h2 {
+    main h1 {
       font-family: 'Uncial Antiqua', serif;
+      font-size: 3.5rem;
       color: #f5d083;
-      text-shadow: 2px 2px 4px #443d21;
-      margin-bottom: 0.5em;
-      user-select: none;
-    }
-
-    h1 {
-      font-size: 3.8rem;
+      margin-bottom: 1.5em;
       text-align: center;
-      margin-top: 1rem;
+      text-shadow: 2px 2px 0 #443d21, 4px 4px 8px rgba(0,0,0,0.7);
     }
 
-    h2 {
-      font-size: 2.4rem;
-      margin-top: 2rem;
+    section {
+      margin-bottom: 3em;
     }
 
-    p {
+    section h2 {
+      font-family: 'Uncial Antiqua', serif;
+      font-size: 2.2rem;
+      color: #f5d083;
+      margin-bottom: 0.7em;
+      border-bottom: 2px solid #a37f24;
+      padding-bottom: 0.3em;
+    }
+
+    section p {
       font-family: 'Roboto Slab', serif;
       font-size: 1.15rem;
-      margin-bottom: 1.4rem;
-      color: #f2f1e7cc;
-      user-select: text;
+      line-height: 1.6;
+      color: #e0d8c0;
+      margin-bottom: 1em;
+      text-align: justify;
     }
 
     footer {
@@ -107,10 +112,38 @@
       font-family: 'Roboto Slab', serif;
       font-size: 0.9rem;
       text-align: center;
-      padding: 1em 0;
-      user-select: none;
+      padding: 1.5em 1em;
+      margin-top: auto;
     }
 
+    /* --- Mobile Optimization --- */
+    @media (max-width: 600px) {
+      main {
+        padding: 2em 1.5em;
+        margin: 1.5em 1em;
+      }
+
+      main h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1em;
+      }
+
+      section h2 {
+        font-size: 1.6rem;
+        margin-bottom: 0.5em;
+      }
+
+      section p {
+        font-size: 1rem;
+        margin-bottom: 0.8em;
+      }
+
+      nav {
+        padding: 1em 1.5em;
+        font-size: 1rem;
+        gap: 1.5em;
+      }
+    }
   </style>
 </head>
 <body>
@@ -126,7 +159,7 @@
     <h1>The Races of Fallenborn</h1>
 
     <section id="elves">
-      <h2>The Elves</h2>
+      <h2>The Elves of Fallenborn</h2>
       <p>In the ancient forests and shadowed glades of Fallenborn dwell the Elves—an ancient people of unmatched grace, wisdom, and power. Their society is one of intricate traditions and proud lineage, bound together by a deep genetic and cultural heritage. Over centuries, the Elves have branched into two distinct peoples, each shaped by destiny and conflict.</p>
 
       <p><strong>Night Elves</strong>, the elder and mightier branch, stand as paragons of strength, intellect, and arcane mastery. Their pale skin glimmers faintly beneath the moonlight, their eyes reflecting centuries of knowledge and a fierce, unyielding will. They claim the highest seats of power, their mastery over magic and martial skill nearly unrivaled.</p>
@@ -137,7 +170,7 @@
     </section>
 
     <section id="humans">
-      <h2>The Humans</h2>
+      <h2>The Humans of Fallenborn</h2>
       <p>The Humans of Fallenborn are defined not by raw strength, but by adaptability, cunning, and unbreakable will. Unlike the Elves or Orcs, Humans are many things at once—warriors and diplomats, scholars and inventors, peacekeepers and warmongers. Their lands are divided into numerous kingdoms and city-states, bound loosely by fragile alliances reminiscent of the old Holy Roman Empire.</p>
 
       <p>Humans understand the paradox of their existence: they crave peace, yet know that only through war can peace be secured. Their history is one of conflict and cooperation, where shifting loyalties shape the fate of nations. Though physically weaker than the great Orcs or ancient Elves, their strength lies in unity—when Humans band together, they become a force to be reckoned with.</p>
@@ -146,7 +179,6 @@
 
       <p>To other races, Humans are a paradox—respected and mistrusted, admired and feared. Their kingdoms sprawl across diverse lands, from fertile plains to mist-shrouded valleys, their cities bustling centers of trade, politics, and invention.</p>
     </section>
-
   </main>
 
   <footer>

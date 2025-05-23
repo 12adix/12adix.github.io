@@ -39,7 +39,6 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      align-items: center;
     }
 
     nav a {
@@ -66,24 +65,6 @@
       left: 0;
     }
 
-    /* Hamburger button - hidden on desktop */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      width: 30px;
-      height: 22px;
-      justify-content: space-between;
-    }
-
-    .menu-toggle span {
-      background: #f2f1e7;
-      height: 4px;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    /* Header and content styles */
     header {
       height: 100vh;
       display: flex;
@@ -102,7 +83,6 @@
       color: #f5d083;
       text-shadow: 2px 2px 0 #443d21, 4px 4px 8px rgba(0,0,0,0.7);
       margin-bottom: 0.5em;
-      word-break: break-word;
     }
 
     header p {
@@ -169,37 +149,6 @@
       margin-top: auto;
     }
 
-    header::before,
-    header::after {
-      content: "";
-      position: absolute;
-      width: 130px;
-      height: 130px;
-      opacity: 0.3;
-      z-index: 0;
-    }
-
-    header::before {
-      background: #536b2c;
-      clip-path: polygon(50% 0%, 90% 40%, 70% 100%, 30% 100%, 10% 40%);
-      top: -30px;
-      left: -40px;
-      transform: rotate(-15deg);
-    }
-
-    header::after {
-      background: #7a9c4d;
-      clip-path: polygon(60% 0%, 100% 30%, 80% 90%, 40% 100%, 0 40%);
-      bottom: -40px;
-      right: -30px;
-      transform: rotate(20deg);
-    }
-
-    header > * {
-      position: relative;
-      z-index: 1;
-    }
-
     /* --- Mobile Optimization --- */
     @media (max-width: 600px) {
       header h1 {
@@ -221,45 +170,11 @@
       }
 
       nav {
-        flex-direction: row; /* keep flex row for desktop-like "hotdog" look but adjust below */
-        padding: 1em;
-        position: relative;
-        justify-content: flex-start;
-        gap: 0;
-      }
-
-      /* Show hamburger on mobile */
-      .menu-toggle {
-        display: flex;
-      }
-
-      /* Hide nav links by default on mobile */
-      nav ul {
-        display: none;
         flex-direction: column;
-        width: 100%;
-        background: rgba(58, 45, 21, 0.95);
-        position: absolute;
-        top: 100%;
-        left: 0;
-        padding: 1em 0;
-        margin: 0;
-        border-radius: 0 0 8px 8px;
-      }
-
-      /* Show nav links when open */
-      nav ul.open {
-        display: flex;
-      }
-
-      nav ul li {
-        padding: 0.5em 0;
-        text-align: center;
-      }
-
-      nav ul li a {
-        font-size: 1.2rem;
-        display: block;
+        align-items: center;
+        gap: 1em;
+        font-size: 1rem;
+        padding: 1em;
       }
 
       section {
@@ -270,30 +185,15 @@
         padding: 2em 1em;
       }
     }
-
-    /* For desktop nav links, use flex directly on nav */
-    nav > a {
-      display: inline-block;
-    }
   </style>
 </head>
 <body>
 
   <nav>
-    <!-- Hamburger menu button, visible only on mobile -->
-    <div class="menu-toggle" aria-label="Toggle menu" role="button" tabindex="0">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
-    <!-- Nav links wrapped in ul for toggling on mobile -->
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="world.html">World</a></li>
-      <li><a href="races.html">Races</a></li>
-      <li><a href="join.html">Join</a></li>
-    </ul>
+    <a href="index.html">Home</a>
+    <a href="world.html">World</a>
+    <a href="races.html">Races</a>
+    <a href="join.html">Join</a>
   </nav>
 
   <header>
@@ -310,24 +210,6 @@
   <footer>
     &copy; 2025 Fallenborn Project. All rights reserved.
   </footer>
-
-  <script>
-    // Hamburger toggle script for mobile only
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('nav ul');
-
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
-
-    // Accessibility: toggle menu on enter/space key press
-    menuToggle.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        navLinks.classList.toggle('open');
-      }
-    });
-  </script>
 
 </body>
 </html>

@@ -116,7 +116,6 @@
       padding: 1em 0;
     }
 
-    /* Section after hero */
     section {
       background: rgba(24, 21, 15, 0.9);
       padding: 4em 2em;
@@ -165,16 +164,57 @@
       z-index: 1;
     }
 
+    /* --- MOBILE STYLES --- */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 1em;
+        padding: 1em;
+        font-size: 1rem;
+      }
+
+      header h1 {
+        font-size: 3rem;
+        text-align: center;
+      }
+
+      header p {
+        font-size: 1.1rem;
+        padding: 0 1em;
+      }
+
+      .btn {
+        font-size: 1rem;
+        padding: 0.8em 2em;
+        width: 90%;
+        max-width: 300px;
+      }
+
+      section h2 {
+        font-size: 2rem;
+      }
+
+      section p {
+        font-size: 1rem;
+        padding: 0 1em;
+      }
+
+      footer {
+        font-size: 0.8rem;
+        padding: 1em 0.5em;
+      }
+    }
+
   </style>
 </head>
 <body>
 
   <nav>
-  <a href="index.html">Home</a>
-  <a href="world.html">World</a>
-  <a href="races.html">Races</a>
-  <a href="join.html">Join</a>
-</nav>
+    <a href="index.html">Home</a>
+    <a href="world.html">World</a>
+    <a href="races.html">Races</a>
+    <a href="join.html">Join</a>
+  </nav>
 
   <header>
     <h1>Fallenborn</h1>

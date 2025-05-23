@@ -23,7 +23,7 @@
       display: flex;
       flex-direction: column;
     }
-    
+
     /* Navigation */
     nav {
       background: rgba(58, 45, 21, 0.85);
@@ -129,6 +129,32 @@
       outline-width: 3px;
     }
 
+    /* Scroll Down Indicator */
+    .scroll-down {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Roboto Slab', serif;
+      font-size: 1rem;
+      color: #f5d083cc;
+      text-shadow: 1px 1px 2px #000;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+      z-index: 1;
+    }
+    .scroll-down::after {
+      content: "▼";
+      display: block;
+      font-size: 1.5rem;
+      margin-top: 5px;
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+      40% { transform: translate(-50%, -10px); }
+      60% { transform: translate(-50%, -5px); }
+    }
+
     /* Footer */
     footer {
       background: rgba(58, 45, 21, 0.85);
@@ -187,7 +213,17 @@
     <h1>Fallenborn</h1>
     <p>Embark on a vast low-poly adventure where nature and diverse races collide in an epic MMORPG world.</p>
     <button class="btn" onclick="alert('Prepare for adventure in Fallenborn!')">Enter the Realm</button>
+    <div class="scroll-down" onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' })">
+      Scroll Down
+    </div>
   </header>
+
+  <section id="about" style="background: rgba(0,0,0,0.6); padding: 4em 2em; text-align: center; color: #f2f1e7;">
+    <h2 style="font-family: 'Uncial Antiqua', serif; font-size: 2.5rem; color: #f5d083;">What is Fallenborn?</h2>
+    <p style="max-width: 700px; margin: 1em auto; font-size: 1.2rem; line-height: 1.6;">
+      Fallenborn is a low-poly fantasy MMORPG rooted in old-school ideals. Explore hand-crafted biomes, engage in stat-based combat, and shape your destiny through player cooperation and a living economy.
+    </p>
+  </section>
 
   <footer>
     &copy; 2025 Fallenborn Project. All rights reserved.

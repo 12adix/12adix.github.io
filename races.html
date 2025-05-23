@@ -3,133 +3,155 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Fallenborn Races</title>
+  <title>Fallenborn — The Races</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Open+Sans+Condensed:wght@700&family=Roboto+Slab&display=swap');
 
-    body {
-      margin: 0;
-      background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-      color: #d9d9d9;
-      font-family: 'Press Start 2P', cursive, monospace;
-      line-height: 1.6;
-      padding: 2rem;
-      min-height: 100vh;
+    /* Base Reset */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
     }
-
-    header {
-      text-align: center;
-      margin-bottom: 2rem;
-      color: #6ee7b7; /* mint green */
+    body {
+      background: 
+        linear-gradient(rgba(43, 62, 37, 0.85), rgba(212, 196, 151, 0.85)),
+        url('images/background.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Open Sans Condensed', sans-serif;
+      color: #f2f1e7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
     }
 
     nav {
-      margin-bottom: 3rem;
-      text-align: center;
+      background: rgba(58, 45, 21, 0.85);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+      padding: 1em 3em;
+      display: flex;
+      justify-content: center;
+      gap: 2.5em;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      user-select: none;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
-
     nav a {
+      color: #f2f1e7;
       text-decoration: none;
-      color: #d9d9d9;
-      margin: 0 1rem;
-      font-weight: bold;
-      border: 2px solid #6ee7b7;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      transition: background-color 0.3s ease;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    nav a:hover,
+    nav a:focus {
+      color: #f5d083;
+    }
+    nav a::after {
+      content: "";
+      display: block;
+      height: 2px;
+      background: #f5d083;
+      width: 0;
+      transition: width 0.3s ease;
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+    }
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 100%;
     }
 
-    nav a:hover {
-      background-color: #6ee7b7;
-      color: #121212;
-    }
-
-    section {
+    main {
       max-width: 900px;
-      margin: 0 auto 4rem auto;
-      padding: 1rem 2rem;
-      background: rgba(50, 50, 50, 0.7);
-      border-radius: 15px;
-      box-shadow: 0 0 15px #6ee7b7aa;
+      margin: 3rem auto 4rem;
+      padding: 0 1.5rem;
+      background: rgba(58, 45, 21, 0.75);
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.7);
+    }
+
+    h1, h2 {
+      font-family: 'Uncial Antiqua', serif;
+      color: #f5d083;
+      text-shadow: 2px 2px 4px #443d21;
+      margin-bottom: 0.5em;
+      user-select: none;
+    }
+
+    h1 {
+      font-size: 3.8rem;
+      text-align: center;
+      margin-top: 1rem;
     }
 
     h2 {
-      color: #34d399; /* lighter mint */
-      margin-bottom: 1rem;
-      font-size: 1.6rem;
-      text-align: center;
-      letter-spacing: 1.5px;
+      font-size: 2.4rem;
+      margin-top: 2rem;
     }
 
     p {
-      font-size: 0.85rem;
-      text-align: justify;
-      margin-bottom: 1rem;
-    }
-
-    .subheading {
-      color: #a7f3d0;
-      font-weight: bold;
-      margin-top: 1.5rem;
-      margin-bottom: 0.5rem;
+      font-family: 'Roboto Slab', serif;
+      font-size: 1.15rem;
+      margin-bottom: 1.4rem;
+      color: #f2f1e7cc;
+      user-select: text;
     }
 
     footer {
+      background: rgba(58, 45, 21, 0.85);
+      color: #f5d083cc;
+      font-family: 'Roboto Slab', serif;
+      font-size: 0.9rem;
       text-align: center;
-      font-size: 0.75rem;
-      color: #555;
-      margin-top: 3rem;
-      padding-bottom: 1rem;
+      padding: 1em 0;
+      user-select: none;
     }
+
   </style>
 </head>
 <body>
-  <header>
-    <h1>Fallenborn: The Races</h1>
-  </header>
 
   <nav>
     <a href="index.html">Home</a>
-    <a href="races.html">Races</a>
-    <a href="#">More Coming Soon</a>
+    <a href="world.html">World</a>
+    <a href="races.html" aria-current="page">Races</a>
+    <a href="join.html">Join</a>
   </nav>
 
-  <section id="elves">
-    <h2>The Elves of Fallenborn</h2>
-    <p>
-      In the ancient forests and shadowed glades of Fallenborn dwell the Elves—an ancient people of unmatched grace, wisdom, and power. Their society is one of intricate traditions and proud lineage, bound together by a deep genetic and cultural heritage. Over centuries, the Elves have branched into two distinct peoples, each shaped by destiny and conflict.
-    </p>
-    <p class="subheading">Night Elves</p>
-    <p>
-      The elder and mightier branch, Night Elves stand as paragons of strength, intellect, and arcane mastery. Their pale skin glimmers faintly beneath the moonlight, their eyes reflecting centuries of knowledge and a fierce, unyielding will. They claim the highest seats of power, their mastery over magic and martial skill nearly unrivaled.
-    </p>
-    <p class="subheading">Forest Elves</p>
-    <p>
-      Living closer to nature’s heartbeat, Forest Elves are strong and gifted warriors, though regarded as lesser by the Night Elves. Bound by a complex hierarchy mixing reverence and resentment, they wield a secret gift—an affinity for the raw energies of nature itself. This sacred power, scorned by their Night Elf kin, gives them an unpredictable edge in battle and a spiritual connection to the wilds few others can claim.
-    </p>
-    <p>
-      Together, these two branches weave a tale of rivalry and survival—fierce loyalty to their kind, even as they compete for dominance. Their capital, Elyndorath, stands as a testament to their enduring legacy—a city of towering spires and ancient magic, hidden deep within the oldest forests of the world.
-    </p>
-  </section>
+  <main>
+    <h1>The Races of Fallenborn</h1>
 
-  <section id="humans">
-    <h2>The Humans of Fallenborn</h2>
-    <p>
-      The Humans of Fallenborn are a people defined not by raw strength, but by adaptability, cunning, and unbreakable will. Unlike the Elves or Orcs, Humans are many things at once—warriors and diplomats, scholars and inventors, peacekeepers and warmongers. Their lands are divided into numerous kingdoms and city-states, bound loosely by fragile alliances reminiscent of the old Holy Roman Empire.
-    </p>
-    <p>
-      Humans understand the paradox of their existence: they crave peace, yet know that only through war can peace be secured. Their history is one of conflict and cooperation, where shifting loyalties shape the fate of nations. Though physically weaker than the great Orcs or the ancient Elves, their strength lies in unity—when Humans band together, they become a force to be reckoned with.
-    </p>
-    <p>
-      Magic is rare among humans but no less potent. Every person is born with latent magical potential, though few embrace it fully. Instead, humans lean heavily on technology and innovation—melding arcane secrets with machinery, crafting devices that amplify their rare magic-users and unlock forgotten relics from the Fallen World’s mysterious past.
-    </p>
-    <p>
-      To other races, Humans are a paradox—respected and mistrusted, admired and feared. Their kingdoms sprawl across diverse lands, from fertile plains to mist-shrouded valleys, their cities bustling centers of trade, politics, and invention.
-    </p>
-  </section>
+    <section id="elves">
+      <h2>The Elves of Fallenborn</h2>
+      <p>In the ancient forests and shadowed glades of Fallenborn dwell the Elves—an ancient people of unmatched grace, wisdom, and power. Their society is one of intricate traditions and proud lineage, bound together by a deep genetic and cultural heritage. Over centuries, the Elves have branched into two distinct peoples, each shaped by destiny and conflict.</p>
+
+      <p><strong>Night Elves</strong>, the elder and mightier branch, stand as paragons of strength, intellect, and arcane mastery. Their pale skin glimmers faintly beneath the moonlight, their eyes reflecting centuries of knowledge and a fierce, unyielding will. They claim the highest seats of power, their mastery over magic and martial skill nearly unrivaled.</p>
+
+      <p>In contrast, the <strong>Forest Elves</strong> live closer to nature’s heartbeat. Though strong and gifted warriors, they are regarded as lesser by the Night Elves, bound by a complex hierarchy mixing reverence and resentment. Yet the Forest Elves wield a secret gift—an affinity for the raw energies of nature itself. This sacred power, scorned by their Night Elf kin, grants them an unpredictable edge in battle and a spiritual connection to the wilds few others can claim.</p>
+
+      <p>Together, these two branches weave a tale of rivalry and survival—fierce loyalty to their kind, even as they compete for dominance. Their capital, <em>Elyndorath</em>, stands as a testament to their enduring legacy—a city of towering spires and ancient magic, hidden deep within the oldest forests of the world.</p>
+    </section>
+
+    <section id="humans">
+      <h2>The Humans of Fallenborn</h2>
+      <p>The Humans of Fallenborn are defined not by raw strength, but by adaptability, cunning, and unbreakable will. Unlike the Elves or Orcs, Humans are many things at once—warriors and diplomats, scholars and inventors, peacekeepers and warmongers. Their lands are divided into numerous kingdoms and city-states, bound loosely by fragile alliances reminiscent of the old Holy Roman Empire.</p>
+
+      <p>Humans understand the paradox of their existence: they crave peace, yet know that only through war can peace be secured. Their history is one of conflict and cooperation, where shifting loyalties shape the fate of nations. Though physically weaker than the great Orcs or ancient Elves, their strength lies in unity—when Humans band together, they become a force to be reckoned with.</p>
+
+      <p>Magic is rare among Humans but no less potent. Each person is born with the potential for magic, though few choose to embrace it. Instead, they lean heavily on technology and innovation—melding arcane secrets with machinery, crafting devices that amplify their rare magic-users and unlock forgotten relics from the Fallen World’s mysterious past.</p>
+
+      <p>To other races, Humans are a paradox—respected and mistrusted, admired and feared. Their kingdoms sprawl across diverse lands, from fertile plains to mist-shrouded valleys, their cities bustling centers of trade, politics, and invention.</p>
+    </section>
+
+  </main>
 
   <footer>
-    &copy; 2025 Fallenborn. All rights reserved.
+    &copy; 2025 Fallenborn Project. All rights reserved.
   </footer>
+
 </body>
 </html>

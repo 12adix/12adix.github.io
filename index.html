@@ -7,31 +7,24 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Open+Sans+Condensed:wght@700&family=Roboto+Slab&display=swap');
 
+    /* Base Reset */
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
-
     body {
+      /* Background image with overlay */
+      background: 
+        linear-gradient(rgba(43, 62, 37, 0.7), rgba(212, 196, 151, 0.8)),
+        url('images/background.jpeg') no-repeat center center fixed;
+      background-size: cover;
       font-family: 'Open Sans Condensed', sans-serif;
       color: #f2f1e7;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      background: url('images/background.jpg') no-repeat center center fixed;
-      background-size: cover;
-      position: relative;
     }
-
-    body::after {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(20, 18, 12, 0.6);
-      z-index: 0;
-    }
-
+    
+    /* Navigation */
     nav {
       background: rgba(58, 45, 21, 0.85);
       box-shadow: 0 2px 6px rgba(0,0,0,0.6);
@@ -43,22 +36,17 @@
       font-size: 1.1rem;
       letter-spacing: 0.08em;
       user-select: none;
-      z-index: 10;
-      position: relative;
     }
-
     nav a {
       color: #f2f1e7;
       text-decoration: none;
       transition: color 0.3s ease;
       position: relative;
     }
-
     nav a:hover,
     nav a:focus {
       color: #f5d083;
     }
-
     nav a::after {
       content: "";
       display: block;
@@ -70,12 +58,12 @@
       bottom: -4px;
       left: 0;
     }
-
     nav a:hover::after,
     nav a:focus::after {
       width: 100%;
     }
 
+    /* Header hero */
     header {
       flex-grow: 1;
       display: flex;
@@ -85,7 +73,6 @@
       text-align: center;
       padding: 3em 1em;
       position: relative;
-      z-index: 1;
     }
 
     header h1 {
@@ -98,7 +85,6 @@
       margin-bottom: 0.5em;
       user-select: none;
     }
-
     header p {
       max-width: 500px;
       font-family: 'Roboto Slab', serif;
@@ -109,11 +95,14 @@
       user-select: none;
     }
 
+    /* Glowing fantasy button */
     .btn {
       background: linear-gradient(135deg, #c0a454 0%, #a37f24 100%);
       border: 2px solid #a37f24;
       border-radius: 12px;
-      box-shadow: 0 0 12px #c0a454, 0 0 24px #a37f24;
+      box-shadow:
+        0 0 12px #c0a454,
+        0 0 24px #a37f24;
       color: #2b2209;
       cursor: pointer;
       font-family: 'Open Sans Condensed', sans-serif;
@@ -130,15 +119,17 @@
       outline-style: solid;
       outline-width: 0;
     }
-
     .btn:hover,
     .btn:focus {
       background: #f5d083;
       color: #5a3e00;
-      box-shadow: 0 0 20px #f5d083, 0 0 40px #d4c497;
+      box-shadow:
+        0 0 20px #f5d083,
+        0 0 40px #d4c497;
       outline-width: 3px;
     }
 
+    /* Footer */
     footer {
       background: rgba(58, 45, 21, 0.85);
       color: #f5d083cc;
@@ -147,28 +138,40 @@
       text-align: center;
       padding: 1em 0;
       user-select: none;
-      z-index: 10;
+    }
+
+    /* Nature shape accents (low-poly style polygons) */
+    header::before {
+      content: "";
+      position: absolute;
+      top: -30px;
+      left: -40px;
+      width: 150px;
+      height: 150px;
+      background: #536b2c;
+      clip-path: polygon(50% 0%, 90% 40%, 70% 100%, 30% 100%, 10% 40%);
+      opacity: 0.3;
+      transform: rotate(-15deg);
+      z-index: 0;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      bottom: -40px;
+      right: -30px;
+      width: 130px;
+      height: 130px;
+      background: #7a9c4d;
+      clip-path: polygon(60% 0%, 100% 30%, 80% 90%, 40% 100%, 0 40%);
+      opacity: 0.25;
+      transform: rotate(20deg);
+      z-index: 0;
+    }
+    header > * {
       position: relative;
+      z-index: 1;
     }
 
-    section.lore {
-      padding: 4em 2em;
-      text-align: center;
-      font-family: 'Roboto Slab', serif;
-      font-size: 1.4rem;
-      line-height: 1.6;
-      max-width: 700px;
-      margin: 0 auto;
-      color: #f2f1e7;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 1.5s ease, transform 1.5s ease;
-    }
-
-    section.lore.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
   </style>
 </head>
 <body>
@@ -182,32 +185,13 @@
 
   <header>
     <h1>Fallenborn</h1>
-    <p>Embark on a vast low-poly adventure where nature, magic, and ancient races clash in a living world of ruin and rebirth.</p>
+    <p>Embark on a vast low-poly adventure where nature and diverse races collide in an epic MMORPG world.</p>
     <button class="btn" onclick="alert('Prepare for adventure in Fallenborn!')">Enter the Realm</button>
   </header>
-
-  <section class="lore" id="lore">
-    In the twilight of the old world, only the broken remain. Elves whisper in shadowed woods, men drink in silent halls, and the Fallenborn rise from the ruins — drawn to a fate deeper than blood or steel.
-  </section>
 
   <footer>
     &copy; 2025 Fallenborn Project. All rights reserved.
   </footer>
-
-  <script>
-    const loreSection = document.getElementById('lore');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          loreSection.classList.add('visible');
-        }
-      });
-    }, {
-      threshold: 0.4
-    });
-
-    observer.observe(loreSection);
-  </script>
 
 </body>
 </html>

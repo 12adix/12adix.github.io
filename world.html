@@ -4,51 +4,200 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fallenborn — The World</title>
-  <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Open+Sans+Condensed:wght@700&family=Roboto+Slab&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles/shared.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Open+Sans+Condensed:wght@700&family=Roboto+Slab&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background:
+        linear-gradient(rgba(43, 62, 37, 0.7), rgba(212, 196, 151, 0.8)),
+        url('images/background-compressed.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Open Sans Condensed', sans-serif;
+      color: #f2f1e7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      background: rgba(58, 45, 21, 0.85);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+      padding: 1em 3em;
+      display: flex;
+      justify-content: center;
+      gap: 2.5em;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      user-select: none;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      color: #f2f1e7;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 100%;
+    }
+
+    nav a::after {
+      content: "";
+      display: block;
+      height: 2px;
+      background: #f5d083;
+      width: 0;
+      transition: width 0.3s ease;
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+    }
+
+    nav a.active,
+    nav a[aria-current="page"] {
+      color: #f5d083;
+    }
+
+    main {
+      background: rgba(24, 21, 15, 0.9);
+      flex-grow: 1;
+      padding: 4em 6em;
+      max-width: 900px;
+      margin: 2em auto;
+      border-radius: 12px;
+      box-shadow: 0 0 24px rgba(0,0,0,0.7);
+    }
+
+    main h1 {
+      font-family: 'Uncial Antiqua', serif;
+      font-size: 3.5rem;
+      color: #f5d083;
+      margin-bottom: 0.5em;
+      text-align: center;
+      text-shadow: 2px 2px 0 #443d21, 4px 4px 8px rgba(0,0,0,0.7);
+    }
+
+    main p.intro {
+      font-family: 'Roboto Slab', serif;
+      font-size: 1.2rem;
+      color: #e0d8c0;
+      margin-bottom: 2.5em;
+      text-align: center;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    section {
+      margin-bottom: 3em;
+    }
+
+    section h2 {
+      font-family: 'Uncial Antiqua', serif;
+      font-size: 2.2rem;
+      color: #f5d083;
+      margin-bottom: 0.7em;
+      border-bottom: 2px solid #a37f24;
+      padding-bottom: 0.3em;
+    }
+
+    section p {
+      font-family: 'Roboto Slab', serif;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: #e0d8c0;
+      margin-bottom: 1em;
+      text-align: justify;
+    }
+
+    footer {
+      background: rgba(58, 45, 21, 0.85);
+      color: #f5d083cc;
+      font-family: 'Roboto Slab', serif;
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 1.5em 1em;
+      margin-top: auto;
+    }
+
+    /* --- Mobile Optimization --- */
+    @media (max-width: 600px) {
+      main {
+        padding: 2em 1.5em;
+        margin: 1.5em 1em;
+      }
+
+      main h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5em;
+      }
+
+      main p.intro {
+        font-size: 1rem;
+        margin-bottom: 1.8em;
+      }
+
+      section h2 {
+        font-size: 1.6rem;
+        margin-bottom: 0.5em;
+      }
+
+      section p {
+        font-size: 1rem;
+        margin-bottom: 0.8em;
+      }
+
+      nav {
+        padding: 1em 1.5em;
+        font-size: 1rem;
+        gap: 1.5em;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Desktop nav -->
   <nav>
     <a href="index.html">Home</a>
-    <a href="world.html" class="active">World</a>
+    <a href="world.html" class="active" aria-current="page">World</a>
     <a href="races.html">Races</a>
     <a href="join.html">Join</a>
   </nav>
 
-  <!-- Hamburger button for mobile -->
-  <div class="hamburger" aria-label="Toggle menu" role="button" tabindex="0" aria-expanded="false">
-    <div></div><div></div><div></div>
-  </div>
-
-  <!-- Mobile nav -->
-  <nav class="mobile-nav" aria-label="Mobile navigation">
-    <a href="index.html">Home</a>
-    <a href="world.html" class="active">World</a>
-    <a href="races.html">Races</a>
-    <a href="join.html">Join</a>
-  </nav>
-
-  <header>
+  <main>
     <h1>The World of Fallenborn</h1>
-    <p>Boundless wilds, forgotten ruins, and fractured kingdoms await your discovery.</p>
-  </header>
+    <p class="intro">Step beyond the veil of known lands and into a realm where nature breathes magic, and history is carved in stone and spirit alike.</p>
 
-  <section>
-    <h2>Ancient Kingdoms</h2>
-    <p>Long before your arrival, empires clashed for control. Their ruins remain—haunted, sacred, or reborn under new banners.</p>
-  </section>
+    <section>
+      <h2>The Ancient Forests</h2>
+      <p>Vast, primeval woodlands stretch beyond the horizon, their canopies alive with whispered legends and the silent watch of ancient trees. These forests hide secrets both wondrous and perilous—forgotten relics, ancient beasts, and the lingering echoes of a world long fallen.</p>
+    </section>
 
-  <section>
-    <h2>Shifting Wildlands</h2>
-    <p>Forests walk, rivers reroute, and creatures unseen in centuries emerge when the veil grows thin.</p>
-  </section>
+    <section>
+      <h2>Ruins of the Fallen World</h2>
+      <p>Scattered across the land lie the shattered remains of civilizations past, ruins steeped in mystery and power. Here, echoes of a lost age beckon those curious enough to uncover their stories—and daring enough to face the dangers they conceal.</p>
+    </section>
+
+    <section>
+      <h2>Wildlands and Beyond</h2>
+      <p>Beyond the forests and ruins lie wildlands untamed by man or magic. Jagged mountains, misty swamps, and endless plains stretch to the edges of the map. In these places, the brave find opportunity, danger, and the chance to carve their own destiny.</p>
+    </section>
+  </main>
 
   <footer>
     &copy; 2025 Fallenborn Project. All rights reserved.
   </footer>
 
-  <script src="scripts/nav-toggle.js"></script>
 </body>
 </html>

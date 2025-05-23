@@ -8,36 +8,21 @@
     @import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Open+Sans+Condensed:wght@700&family=Roboto+Slab&display=swap');
 
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
+
     body {
-      background: 
+      background:
         linear-gradient(rgba(43, 62, 37, 0.7), rgba(212, 196, 151, 0.8)),
         url('images/background.jpeg') no-repeat center center fixed;
       background-size: cover;
       font-family: 'Open Sans Condensed', sans-serif;
       color: #f2f1e7;
-    }
-
-    .hamburger {
-      display: none;
+      min-height: 100vh;
+      display: flex;
       flex-direction: column;
-      justify-content: center;
-      gap: 5px;
-      width: 30px;
-      height: 25px;
-      cursor: pointer;
-      z-index: 11;
-      position: absolute;
-      top: 15px;
-      right: 20px;
-    }
-
-    .hamburger div {
-      height: 3px;
-      background: #f2f1e7;
-      border-radius: 2px;
-      transition: all 0.3s ease;
     }
 
     nav {
@@ -54,7 +39,6 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      transition: transform 0.3s ease;
     }
 
     nav a {
@@ -81,37 +65,6 @@
       left: 0;
     }
 
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        align-items: center;
-        padding: 1em;
-        gap: 0;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background: rgba(58, 45, 21, 0.95);
-        transform: scaleY(0);
-        transform-origin: top;
-        overflow: hidden;
-      }
-
-      nav.active {
-        transform: scaleY(1);
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      nav a {
-        display: block;
-        padding: 1em;
-        font-size: 1.1rem;
-      }
-    }
-
     header {
       height: 100vh;
       display: flex;
@@ -121,6 +74,7 @@
       text-align: center;
       padding: 3em 1em;
       position: relative;
+      overflow: hidden;
     }
 
     header h1 {
@@ -147,14 +101,12 @@
       box-shadow: 0 0 12px #c0a454, 0 0 24px #a37f24;
       color: #2b2209;
       cursor: pointer;
-      font-family: 'Open Sans Condensed', sans-serif;
       font-weight: 700;
       font-size: 1.25rem;
       padding: 1em 3em;
       text-transform: uppercase;
       letter-spacing: 0.15em;
       text-shadow: 0 0 5px #f5d083bb;
-      outline: none;
       transition: all 0.25s ease;
     }
 
@@ -163,15 +115,6 @@
       background: #f5d083;
       color: #5a3e00;
       box-shadow: 0 0 20px #f5d083, 0 0 40px #d4c497;
-    }
-
-    footer {
-      background: rgba(58, 45, 21, 0.85);
-      color: #f5d083cc;
-      font-family: 'Roboto Slab', serif;
-      font-size: 0.9rem;
-      text-align: center;
-      padding: 1em 0;
     }
 
     section {
@@ -194,6 +137,16 @@
       margin: 0 auto;
       color: #e0d8c0;
       line-height: 1.6;
+    }
+
+    footer {
+      background: rgba(58, 45, 21, 0.85);
+      color: #f5d083cc;
+      font-family: 'Roboto Slab', serif;
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 1.5em 1em;
+      margin-top: auto;
     }
 
     header::before,
@@ -226,15 +179,46 @@
       position: relative;
       z-index: 1;
     }
+
+    /* --- Mobile Optimization --- */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      header p,
+      section p {
+        font-size: 1rem;
+      }
+
+      section h2 {
+        font-size: 1.8rem;
+      }
+
+      .btn {
+        font-size: 1rem;
+        padding: 0.75em 2em;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+        font-size: 1rem;
+        padding: 1em;
+      }
+
+      section {
+        padding: 3em 1em;
+      }
+
+      header {
+        padding: 2em 1em;
+      }
+    }
   </style>
 </head>
 <body>
-
-  <div class="hamburger">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
 
   <nav>
     <a href="index.html">Home</a>
@@ -257,15 +241,6 @@
   <footer>
     &copy; 2025 Fallenborn Project. All rights reserved.
   </footer>
-
-  <script>
-    const burger = document.querySelector('.hamburger');
-    const nav = document.querySelector('nav');
-
-    burger.addEventListener('click', () => {
-      nav.classList.toggle('active');
-    });
-  </script>
 
 </body>
 </html>

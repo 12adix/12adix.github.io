@@ -79,40 +79,7 @@
       left: 0;
     }
 
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: space-around;
-      width: 28px;
-      height: 22px;
-      cursor: pointer;
-      z-index: 20;
-    }
-
-    .hamburger div {
-      width: 100%;
-      height: 3px;
-      background-color: #f2f1e7;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    nav.mobile-nav {
-      display: none;
-      flex-direction: column;
-      gap: 1em;
-      padding: 1em 1.5em;
-    }
-
-    nav.mobile-nav.active {
-      display: flex;
-      background: rgba(58, 45, 21, 0.95);
-      position: absolute;
-      top: 60px;
-      left: 0;
-      right: 0;
-      z-index: 15;
-    }
+    /* Removed hamburger styles */
 
     header {
       height: 100vh;
@@ -217,33 +184,11 @@
         padding: 0.75em 2em;
       }
 
+      /* Always show nav on mobile */
       nav {
-        display: none;
-      }
-
-      .hamburger {
-        display: flex;
-        position: fixed;
-        top: 15px;
-        right: 20px;
-      }
-
-      nav.mobile-nav {
-        display: none;
-        position: fixed;
-        top: 60px;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        gap: 1em;
-        background: rgba(58, 45, 21, 0.95);
         padding: 1em 1.5em;
-        font-size: 1.1rem;
-        z-index: 15;
-      }
-
-      nav.mobile-nav.active {
-        display: flex;
+        gap: 1.5em;
+        font-size: 1rem;
       }
 
       section {
@@ -258,23 +203,8 @@
 </head>
 <body>
 
-  <!-- Desktop nav -->
+  <!-- Nav menu, same on desktop and mobile -->
   <nav aria-label="Primary">
-    <a href="index.html">Home</a>
-    <a href="world.html">World</a>
-    <a href="races.html">Races</a>
-    <a href="join.html">Join</a>
-  </nav>
-
-  <!-- Hamburger button for mobile -->
-  <div class="hamburger" aria-label="Toggle menu" role="button" tabindex="0" aria-expanded="false">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-
-  <!-- Mobile nav (hidden by default) -->
-  <nav class="mobile-nav" aria-label="Mobile navigation">
     <a href="index.html">Home</a>
     <a href="world.html">World</a>
     <a href="races.html">Races</a>
@@ -295,26 +225,6 @@
   <footer>
     &copy; 2025 Fallenborn Project. All rights reserved.
   </footer>
-
-  <script>
-    const hamburger = document.querySelector('.hamburger');
-    const mobileNav = document.querySelector('nav.mobile-nav');
-
-    function toggleMenu() {
-      const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
-      hamburger.setAttribute('aria-expanded', !expanded);
-      mobileNav.classList.toggle('active');
-    }
-
-    hamburger.addEventListener('click', toggleMenu);
-
-    hamburger.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        toggleMenu();
-      }
-    });
-  </script>
 
 </body>
 </html>

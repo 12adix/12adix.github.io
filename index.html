@@ -19,6 +19,27 @@
       color: #f2f1e7;
     }
 
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 30px;
+      height: 25px;
+      cursor: pointer;
+      z-index: 11;
+      position: absolute;
+      top: 15px;
+      right: 20px;
+    }
+
+    .hamburger div {
+      height: 3px;
+      background: #f2f1e7;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
     nav {
       background: rgba(58, 45, 21, 0.85);
       box-shadow: 0 2px 6px rgba(0,0,0,0.6);
@@ -33,17 +54,21 @@
       position: sticky;
       top: 0;
       z-index: 10;
+      transition: transform 0.3s ease;
     }
+
     nav a {
       color: #f2f1e7;
       text-decoration: none;
       transition: color 0.3s ease;
       position: relative;
     }
+
     nav a:hover::after,
     nav a:focus::after {
       width: 100%;
     }
+
     nav a::after {
       content: "";
       display: block;
@@ -54,6 +79,37 @@
       position: absolute;
       bottom: -4px;
       left: 0;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 1em;
+        gap: 0;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: rgba(58, 45, 21, 0.95);
+        transform: scaleY(0);
+        transform-origin: top;
+        overflow: hidden;
+      }
+
+      nav.active {
+        transform: scaleY(1);
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      nav a {
+        display: block;
+        padding: 1em;
+        font-size: 1.1rem;
+      }
     }
 
     header {
@@ -74,6 +130,7 @@
       text-shadow: 2px 2px 0 #443d21, 4px 4px 8px rgba(0,0,0,0.7);
       margin-bottom: 0.5em;
     }
+
     header p {
       max-width: 500px;
       font-family: 'Roboto Slab', serif;
@@ -100,6 +157,7 @@
       outline: none;
       transition: all 0.25s ease;
     }
+
     .btn:hover,
     .btn:focus {
       background: #f5d083;
@@ -121,12 +179,14 @@
       padding: 4em 2em;
       text-align: center;
     }
+
     section h2 {
       font-family: 'Uncial Antiqua', serif;
       font-size: 2.8rem;
       margin-bottom: 1em;
       color: #f5d083;
     }
+
     section p {
       font-family: 'Roboto Slab', serif;
       font-size: 1.2rem;
@@ -145,6 +205,7 @@
       opacity: 0.3;
       z-index: 0;
     }
+
     header::before {
       background: #536b2c;
       clip-path: polygon(50% 0%, 90% 40%, 70% 100%, 30% 100%, 10% 40%);
@@ -152,6 +213,7 @@
       left: -40px;
       transform: rotate(-15deg);
     }
+
     header::after {
       background: #7a9c4d;
       clip-path: polygon(60% 0%, 100% 30%, 80% 90%, 40% 100%, 0 40%);
@@ -159,55 +221,20 @@
       right: -30px;
       transform: rotate(20deg);
     }
+
     header > * {
       position: relative;
       z-index: 1;
     }
-
-    /* --- MOBILE STYLES --- */
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        gap: 1em;
-        padding: 1em;
-        font-size: 1rem;
-      }
-
-      header h1 {
-        font-size: 3rem;
-        text-align: center;
-      }
-
-      header p {
-        font-size: 1.1rem;
-        padding: 0 1em;
-      }
-
-      .btn {
-        font-size: 1rem;
-        padding: 0.8em 2em;
-        width: 90%;
-        max-width: 300px;
-      }
-
-      section h2 {
-        font-size: 2rem;
-      }
-
-      section p {
-        font-size: 1rem;
-        padding: 0 1em;
-      }
-
-      footer {
-        font-size: 0.8rem;
-        padding: 1em 0.5em;
-      }
-    }
-
   </style>
 </head>
 <body>
+
+  <div class="hamburger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 
   <nav>
     <a href="index.html">Home</a>
@@ -230,6 +257,15 @@
   <footer>
     &copy; 2025 Fallenborn Project. All rights reserved.
   </footer>
+
+  <script>
+    const burger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav');
+
+    burger.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  </script>
 
 </body>
 </html>
